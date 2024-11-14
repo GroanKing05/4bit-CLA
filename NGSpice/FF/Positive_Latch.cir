@@ -1,0 +1,60 @@
+* Positive D latch using TSPC flip-flop
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+* width is the universal width parameter - 10*LAMBDA
+.param width = {10*LAMBDA}
+.global gnd vdd
+
+.subckt inverter in out width
+    MP out in vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN out in gnd gnd CMOSN W={(width)} L={2*LAMBDA}
+    + AS={5*(width)*LAMBDA} PS={10*LAMBDA+2*(width)} AD={5*(width)*LAMBDA} PD={10*LAMBDA+2*(width)}
+.ends inverter
+
+.subckt positive_latch clk d q width
+    x1 a a_inv width inverter
+    x3 a_inv a_inv_inv width inverter
+
+    MP1 a d vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN1 a clk temp1 gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN2 temp1 d gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MP2 q_inv a_inv_inv vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN3 q_inv clk temp2 gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN4 temp2 a_inv_inv gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    x2 q_inv q_inv_inv width inverter
+    x4 q_inv_inv q width inverter
+.ends positive_latch
+
+Vdd vdd gnd 'SUPPLY'
+Vclk clk gnd pulse 0 1.8 0 0.01ns 0.01ns 10ns 20ns
+Vd d gnd pulse 1.8 0 15n 0.01ns 0.01ns 20ns 40ns
+
+X1 clk d q width positive_latch
+
+.tran 100p 100n
+
+.control
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+
+set curplottitle="2023112005_TSPC_Positive_Latch"
+plot v(d)+2, v(q), v(clk)+4
+.endc

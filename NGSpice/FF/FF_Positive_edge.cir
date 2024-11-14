@@ -1,0 +1,147 @@
+* Positive edge triggered flip-flop using TSPC
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+* width is the universal width parameter - 10*LAMBDA
+.param width = {10*LAMBDA}
+.global gnd vdd
+
+.subckt inverter in out width
+    MP out in vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN out in gnd gnd CMOSN W={(width)} L={2*LAMBDA}
+    + AS={5*(width)*LAMBDA} PS={10*LAMBDA+2*(width)} AD={5*(width)*LAMBDA} PD={10*LAMBDA+2*(width)}
+.ends inverter
+
+.subckt inverterLoad in out width
+    MP out in vdd vdd CMOSP W={(width)} L={2*LAMBDA}
+    + AS={5*(width)*LAMBDA} PS={10*LAMBDA+2*(width)} AD={5*(width)*LAMBDA} PD={10*LAMBDA+2*(width)}
+
+    MN out in gnd gnd CMOSN W={(width/2)} L={2*LAMBDA}
+    + AS={5*(width/2)*LAMBDA} PS={10*LAMBDA+2*(width/2)} AD={5*(width/2)*LAMBDA} PD={10*LAMBDA+2*(width/2)}
+.ends inverterLoad
+
+* .subckt positive_latch clk d q width
+*     MP1 a d vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MN1 a clk temp1 gnd CMOSN W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MN2 temp1 d gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MP2 q a vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MN3 q clk temp2 gnd CMOSN W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MN4 temp2 a gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+* .ends positive_latch
+
+* .subckt negative_latch clk d q width
+*     MP1 temp1 d vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MP2 b clk temp1 vdd CMOSP W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MN1 b d gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MP3 temp2 b vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MP4 q clk temp2 vdd CMOSP W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+*     MN2 q b gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+*     + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+* .ends negative_latch
+
+.subckt tspc_d clk d q width
+    * Negative Latch (First stage)
+    MP1 temp1_n d vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MP2 b clk temp1_n vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN1 b d gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MP3 temp2_n b vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MP4 q1 clk temp2_n vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN2 q1 b gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    * Middle stage inverter
+    X1 q1 d2 width inverter
+
+    * Positive Latch (Second stage)
+    MP5 a d2 vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN3 a clk temp1_p gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN4 temp1_p d2 gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MP6 q2 a vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN5 q2 clk temp2_p gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN6 temp2_p a gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    * Final Inverter
+    X2 q2 q width inverter
+
+.ends tspc_d
+
+Vdd vdd gnd 'SUPPLY'
+Vclk clk gnd pulse 1.8 0 0 0.01ns 0.01ns 10ns 20ns
+Vd d gnd pulse 1.8 0 15n 0.01ns 0.01ns 20ns 40ns
+
+X100 clk d q width tspc_d
+
+*Load inverter
+X101 q q_n width inverterLoad
+
+.measure tran trise
++ TRIG v(q) VAL = 'SUPPLY / 10'  RISE = 1
++ TARG v(q) VAL = '9 * SUPPLY / 10'  RISE = 1
+
+.measure tran tfall
++ TRIG v(q) VAL = '9 * SUPPLY / 10'  FALL = 1
++ TARG v(q) VAL = 'SUPPLY / 10' FALL = 1
+
+.measure tran delay param = '(trise + tfall)/2'
+
+.measure tran clk2q
++ TRIG v(clk) VAL='0.5*SUPPLY' RISE=1
++ TARG v(q) VAL='0.5*SUPPLY' RISE=1
+
+.tran 1p 100n
+
+.control
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+
+set curplottitle="2023112005_TSPC_Flip_Flop"
+plot v(d)+2, v(clk)+4, v(q)
+.endc

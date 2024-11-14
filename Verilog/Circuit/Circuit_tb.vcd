@@ -1,0 +1,393 @@
+$date
+	Wed Nov 13 14:39:17 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Circuit_tb $end
+$var wire 1 ! s3 $end
+$var wire 1 " s2 $end
+$var wire 1 # s1 $end
+$var wire 1 $ s0 $end
+$var wire 1 % p4 $end
+$var wire 1 & g4_inv $end
+$var wire 1 ' c4 $end
+$var reg 1 ( a0 $end
+$var reg 1 ) a1 $end
+$var reg 1 * a2 $end
+$var reg 1 + a3 $end
+$var reg 1 , b0 $end
+$var reg 1 - b1 $end
+$var reg 1 . b2 $end
+$var reg 1 / b3 $end
+$var reg 1 0 c0 $end
+$var reg 1 1 clk $end
+$scope module uut $end
+$var wire 1 ( a0 $end
+$var wire 1 ) a1 $end
+$var wire 1 * a2 $end
+$var wire 1 + a3 $end
+$var wire 1 , b0 $end
+$var wire 1 - b1 $end
+$var wire 1 . b2 $end
+$var wire 1 / b3 $end
+$var wire 1 0 c0 $end
+$var wire 1 1 clk $end
+$var wire 1 2 s3_cla $end
+$var wire 1 ! s3 $end
+$var wire 1 3 s2_cla $end
+$var wire 1 " s2 $end
+$var wire 1 4 s1_cla $end
+$var wire 1 # s1 $end
+$var wire 1 5 s0_cla $end
+$var wire 1 $ s0 $end
+$var wire 1 6 p4_cla $end
+$var wire 1 % p4 $end
+$var wire 1 7 g4_inv_cla $end
+$var wire 1 & g4_inv $end
+$var wire 1 8 c4_cla $end
+$var wire 1 ' c4 $end
+$var wire 1 9 c0_reg $end
+$var wire 1 : b3_reg $end
+$var wire 1 ; b2_reg $end
+$var wire 1 < b1_reg $end
+$var wire 1 = b0_reg $end
+$var wire 1 > a3_reg $end
+$var wire 1 ? a2_reg $end
+$var wire 1 @ a1_reg $end
+$var wire 1 A a0_reg $end
+$scope module cla_inst $end
+$var wire 1 B c0_inv $end
+$var wire 1 C c1 $end
+$var wire 1 D c2 $end
+$var wire 1 E c3 $end
+$var wire 1 8 c4 $end
+$var wire 1 7 g4_inv $end
+$var wire 1 6 p4 $end
+$var wire 1 F temp100 $end
+$var wire 1 G temp101 $end
+$var wire 1 H temp102 $end
+$var wire 1 I temp103 $end
+$var wire 1 J temp104 $end
+$var wire 1 K temp105 $end
+$var wire 1 L temp106 $end
+$var wire 1 M temp107 $end
+$var wire 1 N temp108 $end
+$var wire 1 O temp109 $end
+$var wire 1 P temp110 $end
+$var wire 1 Q temp111 $end
+$var wire 1 R temp112 $end
+$var wire 1 S temp113 $end
+$var wire 1 2 s3 $end
+$var wire 1 3 s2 $end
+$var wire 1 4 s1 $end
+$var wire 1 5 s0 $end
+$var wire 1 T p3_inv $end
+$var wire 1 U p2_inv $end
+$var wire 1 V p1_inv $end
+$var wire 1 W p0_inv $end
+$var wire 1 X g3_inv $end
+$var wire 1 Y g2_inv $end
+$var wire 1 Z g1_inv $end
+$var wire 1 [ g0_inv $end
+$var wire 1 9 c0 $end
+$var wire 1 : b3 $end
+$var wire 1 ; b2 $end
+$var wire 1 < b1 $end
+$var wire 1 = b0 $end
+$var wire 1 > a3 $end
+$var wire 1 ? a2 $end
+$var wire 1 @ a1 $end
+$var wire 1 A a0 $end
+$scope module psg0 $end
+$var wire 1 [ G_inv $end
+$var wire 1 W P_inv $end
+$var wire 1 5 S $end
+$var wire 1 \ temp1 $end
+$var wire 1 9 C $end
+$var wire 1 = B $end
+$var wire 1 A A $end
+$upscope $end
+$scope module psg1 $end
+$var wire 1 C C $end
+$var wire 1 Z G_inv $end
+$var wire 1 V P_inv $end
+$var wire 1 4 S $end
+$var wire 1 ] temp1 $end
+$var wire 1 < B $end
+$var wire 1 @ A $end
+$upscope $end
+$scope module psg2 $end
+$var wire 1 D C $end
+$var wire 1 Y G_inv $end
+$var wire 1 U P_inv $end
+$var wire 1 3 S $end
+$var wire 1 ^ temp1 $end
+$var wire 1 ; B $end
+$var wire 1 ? A $end
+$upscope $end
+$scope module psg3 $end
+$var wire 1 E C $end
+$var wire 1 X G_inv $end
+$var wire 1 T P_inv $end
+$var wire 1 2 S $end
+$var wire 1 _ temp1 $end
+$var wire 1 : B $end
+$var wire 1 > A $end
+$upscope $end
+$upscope $end
+$scope module ff_a0 $end
+$var wire 1 1 CLK $end
+$var wire 1 ( D $end
+$var reg 1 A Q $end
+$upscope $end
+$scope module ff_a1 $end
+$var wire 1 1 CLK $end
+$var wire 1 ) D $end
+$var reg 1 @ Q $end
+$upscope $end
+$scope module ff_a2 $end
+$var wire 1 1 CLK $end
+$var wire 1 * D $end
+$var reg 1 ? Q $end
+$upscope $end
+$scope module ff_a3 $end
+$var wire 1 1 CLK $end
+$var wire 1 + D $end
+$var reg 1 > Q $end
+$upscope $end
+$scope module ff_b0 $end
+$var wire 1 1 CLK $end
+$var wire 1 , D $end
+$var reg 1 = Q $end
+$upscope $end
+$scope module ff_b1 $end
+$var wire 1 1 CLK $end
+$var wire 1 - D $end
+$var reg 1 < Q $end
+$upscope $end
+$scope module ff_b2 $end
+$var wire 1 1 CLK $end
+$var wire 1 . D $end
+$var reg 1 ; Q $end
+$upscope $end
+$scope module ff_b3 $end
+$var wire 1 1 CLK $end
+$var wire 1 / D $end
+$var reg 1 : Q $end
+$upscope $end
+$scope module ff_c0 $end
+$var wire 1 1 CLK $end
+$var wire 1 0 D $end
+$var reg 1 9 Q $end
+$upscope $end
+$scope module ff_c4 $end
+$var wire 1 1 CLK $end
+$var wire 1 8 D $end
+$var reg 1 ' Q $end
+$upscope $end
+$scope module ff_g4 $end
+$var wire 1 1 CLK $end
+$var wire 1 7 D $end
+$var reg 1 & Q $end
+$upscope $end
+$scope module ff_p4 $end
+$var wire 1 1 CLK $end
+$var wire 1 6 D $end
+$var reg 1 % Q $end
+$upscope $end
+$scope module ff_s0 $end
+$var wire 1 1 CLK $end
+$var wire 1 5 D $end
+$var reg 1 $ Q $end
+$upscope $end
+$scope module ff_s1 $end
+$var wire 1 1 CLK $end
+$var wire 1 4 D $end
+$var reg 1 # Q $end
+$upscope $end
+$scope module ff_s2 $end
+$var wire 1 1 CLK $end
+$var wire 1 3 D $end
+$var reg 1 " Q $end
+$upscope $end
+$scope module ff_s3 $end
+$var wire 1 1 CLK $end
+$var wire 1 2 D $end
+$var reg 1 ! Q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0_
+0^
+0]
+0\
+1[
+1Z
+1Y
+1X
+1W
+1V
+1U
+1T
+1S
+0R
+1Q
+0P
+0O
+0N
+1M
+0L
+0K
+0J
+1I
+0H
+0G
+1F
+0E
+0D
+0C
+1B
+0A
+0@
+0?
+0>
+0=
+0<
+0;
+0:
+09
+08
+17
+06
+05
+04
+03
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1&
+11
+#20000
+01
+#30000
+11
+#40000
+01
+1,
+#50000
+15
+1\
+0W
+1=
+11
+#60000
+01
+#70000
+1$
+11
+#80000
+01
+1+
+1*
+1)
+1(
+#90000
+18
+07
+1D
+1P
+1E
+1J
+1L
+16
+05
+1C
+04
+0I
+1G
+03
+1K
+02
+1O
+0\
+0[
+1]
+0V
+1^
+0U
+1_
+0T
+1A
+1@
+1?
+1>
+11
+#100000
+01
+#110000
+0&
+1%
+1'
+0$
+11
+#120000
+01
+10
+1.
+1-
+0*
+0(
+#130000
+1N
+1I
+14
+0M
+0F
+1\
+1[
+0]
+0Z
+05
+0S
+1H
+0B
+0A
+1<
+0?
+1;
+19
+11
+#140000
+01
+#150000
+1#
+11
+#160000
+01

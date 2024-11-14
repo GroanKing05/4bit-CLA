@@ -1,0 +1,105 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000228f7f82d20 .scope module, "PSG_tb" "PSG_tb" 2 5;
+ .timescale -9 -12;
+v00000228f7fb4b30_0 .var "A", 0 0;
+v00000228f7fb4bd0_0 .var "B", 0 0;
+v00000228f7fb4c70_0 .var "C", 0 0;
+v00000228f7fb4d10_0 .net "G_inv", 0 0, L_00000228f808ba30;  1 drivers
+v00000228f7fb4db0_0 .net "P_inv", 0 0, L_00000228f808baa0;  1 drivers
+v00000228f7fb4e50_0 .net "S", 0 0, L_00000228f808bb80;  1 drivers
+S_00000228f7f82eb0 .scope module, "uut" "PSG" 2 9, 3 2 0, S_00000228f7f82d20;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "P_inv";
+    .port_info 4 /OUTPUT 1 "G_inv";
+    .port_info 5 /OUTPUT 1 "S";
+L_00000228f808baa0 .functor NOR 1, v00000228f7fb4b30_0, v00000228f7fb4bd0_0, C4<0>, C4<0>;
+L_00000228f808ba30 .functor NAND 1, v00000228f7fb4b30_0, v00000228f7fb4bd0_0, C4<1>, C4<1>;
+L_00000228f808bb10 .functor XOR 1, v00000228f7fb4b30_0, v00000228f7fb4bd0_0, C4<0>, C4<0>;
+L_00000228f808bb80 .functor XOR 1, L_00000228f808bb10, v00000228f7fb4c70_0, C4<0>, C4<0>;
+v00000228f808a060_0 .net "A", 0 0, v00000228f7fb4b30_0;  1 drivers
+v00000228f7f83040_0 .net "B", 0 0, v00000228f7fb4bd0_0;  1 drivers
+v00000228f7f830e0_0 .net "C", 0 0, v00000228f7fb4c70_0;  1 drivers
+v00000228f7fb48b0_0 .net "G_inv", 0 0, L_00000228f808ba30;  alias, 1 drivers
+v00000228f7fb4950_0 .net "P_inv", 0 0, L_00000228f808baa0;  alias, 1 drivers
+v00000228f7fb49f0_0 .net "S", 0 0, L_00000228f808bb80;  alias, 1 drivers
+v00000228f7fb4a90_0 .net "temp1", 0 0, L_00000228f808bb10;  1 drivers
+    .scope S_00000228f7f82d20;
+T_0 ;
+    %vpi_call 2 12 "$dumpfile", "PSG_tb.vcd" {0 0 0};
+    %vpi_call 2 13 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000228f7f82d20 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4b30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4bd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4c70_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4b30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4bd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4c70_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4b30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4bd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4c70_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4b30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4bd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4c70_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4b30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4bd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4c70_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4b30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4bd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4c70_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4b30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4bd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000228f7fb4c70_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4b30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4bd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000228f7fb4c70_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 24 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "PSG_tb.v";
+    "./PSG.v";

@@ -1,0 +1,53 @@
+* NOR Gate (inverter 2W/W)
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+* width is the universal width parameter - 10*LAMBDA
+.param width = {10*LAMBDA}
+.global gnd vdd
+
+.subckt inverter in out width
+    MP out in vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN out in gnd gnd CMOSN W={(width)} L={2*LAMBDA}
+    + AS={5*(width)*LAMBDA} PS={10*LAMBDA+2*(width)} AD={5*(width)*LAMBDA} PD={10*LAMBDA+2*(width)}
+.ends inverter
+
+.subckt xor in_1 in_2 out width
+    X1 in_1 in_1_inv width inverter
+    M1 out in_2 in_1 vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)}
+    + AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    M2 out in_2 in_1_inv gnd CMOSN W={(width)} L={2*LAMBDA}
+    + AS={5*(width)*LAMBDA} PS={10*LAMBDA+2*(width)}
+    + AD={5*(width)*LAMBDA} PD={10*LAMBDA+2*(width)}
+
+    M3 out in_1 in_2 vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)}
+    + AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    M4 in_2 in_1_inv out gnd CMOSN W={(width)} L={2*LAMBDA}
+    + AS={5*(width)*LAMBDA} PS={10*LAMBDA+2*(width)}
+    + AD={5*(width)*LAMBDA} PD={10*LAMBDA+2*(width)}
+.ends xor
+
+Vdd vdd gnd 'SUPPLY'
+Va a gnd pulse 0 1.8 0 0.01ns 0.01ns 10ns 20ns
+Vb b gnd pulse 0 1.8 0 0.01ns 0.01ns 20ns 40ns
+
+X1 a b y width xor
+
+.tran 100p 50n
+
+.control
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+
+set curplottitle="2023112005_XOR"
+plot v(a)+2, v(b)+4, v(y)
+.endc

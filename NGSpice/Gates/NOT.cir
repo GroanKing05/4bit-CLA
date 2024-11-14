@@ -1,0 +1,37 @@
+* NOT Gate 2W/W
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+* width is the universal width parameter - 10*LAMBDA
+.param width = {10*LAMBDA}
+* k is the Wp/Wn ratio
+.param k = {2}
+.param W_N = {width}
+.param W_P = {k * width}
+.global gnd vdd
+
+.subckt inverter in out width
+    MP out in vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN out in gnd gnd CMOSN W={(width)} L={2*LAMBDA}
+    + AS={5*(width)*LAMBDA} PS={10*LAMBDA+2*(width)} AD={5*(width)*LAMBDA} PD={10*LAMBDA+2*(width)}
+.ends inverter
+
+Vdd vdd gnd 'SUPPLY'
+Va a gnd pulse 0 1.8 0 0.01ns 0.01ns 10ns 20ns
+
+X1 a y width inverter
+
+.tran 100p 50n
+
+.control
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+
+set curplottitle="2023112005_NOT"
+plot v(a), v(y)+2
+.endc

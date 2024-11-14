@@ -1,0 +1,215 @@
+$date
+	Wed Nov 13 13:38:25 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module CLA_tb $end
+$var wire 1 ! s3 $end
+$var wire 1 " s2 $end
+$var wire 1 # s1 $end
+$var wire 1 $ s0 $end
+$var wire 1 % p4 $end
+$var wire 1 & g4_inv $end
+$var wire 1 ' c4 $end
+$var reg 1 ( a0 $end
+$var reg 1 ) a1 $end
+$var reg 1 * a2 $end
+$var reg 1 + a3 $end
+$var reg 1 , b0 $end
+$var reg 1 - b1 $end
+$var reg 1 . b2 $end
+$var reg 1 / b3 $end
+$var reg 1 0 c0 $end
+$scope module uut $end
+$var wire 1 ( a0 $end
+$var wire 1 ) a1 $end
+$var wire 1 * a2 $end
+$var wire 1 + a3 $end
+$var wire 1 , b0 $end
+$var wire 1 - b1 $end
+$var wire 1 . b2 $end
+$var wire 1 / b3 $end
+$var wire 1 0 c0 $end
+$var wire 1 1 c0_inv $end
+$var wire 1 2 c1 $end
+$var wire 1 3 c2 $end
+$var wire 1 4 c3 $end
+$var wire 1 ' c4 $end
+$var wire 1 & g4_inv $end
+$var wire 1 % p4 $end
+$var wire 1 5 temp100 $end
+$var wire 1 6 temp101 $end
+$var wire 1 7 temp102 $end
+$var wire 1 8 temp103 $end
+$var wire 1 9 temp104 $end
+$var wire 1 : temp105 $end
+$var wire 1 ; temp106 $end
+$var wire 1 < temp107 $end
+$var wire 1 = temp108 $end
+$var wire 1 > temp109 $end
+$var wire 1 ? temp110 $end
+$var wire 1 @ temp111 $end
+$var wire 1 A temp112 $end
+$var wire 1 B temp113 $end
+$var wire 1 ! s3 $end
+$var wire 1 " s2 $end
+$var wire 1 # s1 $end
+$var wire 1 $ s0 $end
+$var wire 1 C p3_inv $end
+$var wire 1 D p2_inv $end
+$var wire 1 E p1_inv $end
+$var wire 1 F p0_inv $end
+$var wire 1 G g3_inv $end
+$var wire 1 H g2_inv $end
+$var wire 1 I g1_inv $end
+$var wire 1 J g0_inv $end
+$scope module psg0 $end
+$var wire 1 ( A $end
+$var wire 1 , B $end
+$var wire 1 0 C $end
+$var wire 1 J G_inv $end
+$var wire 1 F P_inv $end
+$var wire 1 $ S $end
+$var wire 1 K temp1 $end
+$upscope $end
+$scope module psg1 $end
+$var wire 1 ) A $end
+$var wire 1 - B $end
+$var wire 1 2 C $end
+$var wire 1 I G_inv $end
+$var wire 1 E P_inv $end
+$var wire 1 # S $end
+$var wire 1 L temp1 $end
+$upscope $end
+$scope module psg2 $end
+$var wire 1 * A $end
+$var wire 1 . B $end
+$var wire 1 3 C $end
+$var wire 1 H G_inv $end
+$var wire 1 D P_inv $end
+$var wire 1 " S $end
+$var wire 1 M temp1 $end
+$upscope $end
+$scope module psg3 $end
+$var wire 1 + A $end
+$var wire 1 / B $end
+$var wire 1 4 C $end
+$var wire 1 G G_inv $end
+$var wire 1 C P_inv $end
+$var wire 1 ! S $end
+$var wire 1 N temp1 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0N
+0M
+0L
+0K
+1J
+1I
+1H
+1G
+1F
+1E
+1D
+1C
+1B
+0A
+1@
+0?
+0>
+0=
+1<
+0;
+0:
+09
+18
+07
+06
+15
+04
+03
+02
+11
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+1&
+0%
+0$
+0#
+0"
+0!
+$end
+#20000
+1$
+0F
+1K
+1,
+#40000
+1'
+0&
+13
+14
+1?
+1%
+19
+1;
+0!
+1>
+0"
+1:
+16
+08
+12
+0$
+0C
+1N
+0D
+1M
+0E
+1L
+0J
+0K
+1+
+1*
+1)
+1(
+#60000
+1#
+1=
+1;
+05
+0<
+18
+12
+01
+17
+0B
+0I
+0L
+1J
+1K
+10
+1.
+1-
+0*
+0(
+#80000

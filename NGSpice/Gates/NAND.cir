@@ -1,0 +1,40 @@
+* NAND Gate (inverter 2W/W)
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+* width is the universal width parameter - 10*LAMBDA
+.param width = {10*LAMBDA}
+.global gnd vdd
+
+.subckt nand in_1 in_2 out width
+    MP1 out in_1 vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+   
+    MP2 out in_2 vdd vdd CMOSP W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN1 out in_1 temp1 gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+
+    MN2 temp1 in_2 gnd gnd CMOSN W={(2*width)} L={2*LAMBDA}
+    + AS={5*(2*width)*LAMBDA} PS={10*LAMBDA+2*(2*width)} AD={5*(2*width)*LAMBDA} PD={10*LAMBDA+2*(2*width)}
+.ends nand
+
+Vdd vdd gnd 'SUPPLY'
+Va a gnd pulse 0 1.8 0 0.01ns 0.01ns 10ns 20ns
+Vb b gnd pulse 0 1.8 0 0.01ns 0.01ns 20ns 40ns
+
+X1 a b y width nand 
+
+.tran 100p 50n
+
+.control
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+
+set curplottitle="2023112005_NAND"
+plot v(a)+2, v(b)+4, v(y)
+.endc

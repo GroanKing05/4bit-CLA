@@ -1,0 +1,68 @@
+$date
+	Wed Nov 13 12:42:54 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module PSG_tb $end
+$var wire 1 ! S $end
+$var wire 1 " P_inv $end
+$var wire 1 # G_inv $end
+$var reg 1 $ A $end
+$var reg 1 % B $end
+$var reg 1 & C $end
+$scope module uut $end
+$var wire 1 $ A $end
+$var wire 1 % B $end
+$var wire 1 & C $end
+$var wire 1 # G_inv $end
+$var wire 1 " P_inv $end
+$var wire 1 ! S $end
+$var wire 1 ' temp1 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0'
+0&
+0%
+0$
+1#
+1"
+0!
+$end
+#10000
+1!
+1&
+#20000
+0"
+1'
+0&
+1%
+#30000
+0!
+1&
+#40000
+1!
+0&
+0%
+1$
+#50000
+0!
+1&
+#60000
+0#
+0'
+0&
+1%
+#70000
+1!
+1&
+#80000
