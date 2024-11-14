@@ -1,0 +1,121 @@
+* SPICE3 file created from PropSumGen.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+M1000 vdd mid_sumbit a_6_n255# w_22_n262# CMOSP w=20 l=2
++  ad=640 pd=294 as=100 ps=50
+M1001 sum_bit carry_in mid_sumbit w_61_n257# CMOSP w=20 l=2
++  ad=140 pd=54 as=240 ps=104
+M1002 g_inv in2 vdd w_n37_n170# CMOSP w=20 l=2
++  ad=160 pd=56 as=0 ps=0
+M1003 gnd in1 a_n24_n202# Gnd CMOSN w=20 l=2
++  ad=300 pd=170 as=160 ps=56
+M1004 gnd in2 a_n84_n281# Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=100 ps=60
+M1005 gnd mid_sumbit a_6_n255# Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=100 ps=60
+M1006 carry_in mid_sumbit sum_bit w_61_n257# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1007 a_n84_n281# in1 mid_sumbit Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=70 ps=34
+M1008 mid_sumbit a_n84_n281# in1 Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=50 ps=30
+M1009 vdd in1 g_inv w_n37_n170# CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1010 in2 in1 mid_sumbit w_n95_n257# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1011 a_10_n164# in2 vdd w_n37_n170# CMOSP w=40 l=2
++  ad=320 pd=96 as=0 ps=0
+M1012 p_inv in2 gnd Gnd CMOSN w=10 l=2
++  ad=80 pd=36 as=0 ps=0
+M1013 mid_sumbit in2 in1 w_n95_n257# CMOSP w=20 l=2
++  ad=0 pd=0 as=100 ps=50
+M1014 vdd in2 a_n84_n281# w_n55_n262# CMOSP w=20 l=2
++  ad=0 pd=0 as=100 ps=50
+M1015 p_inv in1 a_10_n164# w_n37_n170# CMOSP w=40 l=2
++  ad=200 pd=90 as=0 ps=0
+M1016 gnd in1 p_inv Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1017 a_n24_n202# in2 g_inv Gnd CMOSN w=20 l=2
++  ad=0 pd=0 as=100 ps=50
+M1018 sum_bit carry_in a_6_n255# Gnd CMOSN w=10 l=2
++  ad=70 pd=34 as=0 ps=0
+M1019 carry_in a_6_n255# sum_bit Gnd CMOSN w=10 l=2
++  ad=50 pd=30 as=0 ps=0
+C0 w_n55_n262# vdd 0.11fF
+C1 w_n37_n170# vdd 0.12fF
+C2 w_61_n257# sum_bit 0.17fF
+C3 w_n95_n257# in2 0.10fF
+C4 w_22_n262# a_6_n255# 0.02fF
+C5 in2 g_inv 0.23fF
+C6 in1 vdd 0.12fF
+C7 w_22_n262# mid_sumbit 0.07fF
+C8 gnd in2 0.05fF
+C9 a_n84_n281# in2 0.06fF
+C10 mid_sumbit vdd 0.12fF
+C11 carry_in a_6_n255# 0.10fF
+C12 mid_sumbit carry_in 0.27fF
+C13 w_n37_n170# in1 0.44fF
+C14 w_61_n257# carry_in 0.24fF
+C15 in2 vdd 0.19fF
+C16 w_n37_n170# p_inv 0.02fF
+C17 gnd vdd 0.42fF
+C18 a_n24_n202# in2 0.01fF
+C19 p_inv in1 0.17fF
+C20 mid_sumbit in1 0.40fF
+C21 carry_in sum_bit 0.35fF
+C22 mid_sumbit a_6_n255# 0.06fF
+C23 w_22_n262# vdd 0.11fF
+C24 w_n37_n170# g_inv 0.04fF
+C25 w_n55_n262# in2 0.07fF
+C26 w_n95_n257# in1 0.24fF
+C27 w_n37_n170# in2 0.14fF
+C28 in1 g_inv 0.18fF
+C29 w_n55_n262# a_n84_n281# 0.02fF
+C30 w_61_n257# mid_sumbit 0.10fF
+C31 in2 in1 1.02fF
+C32 w_n95_n257# mid_sumbit 0.18fF
+C33 a_n84_n281# in1 0.10fF
+C34 p_inv in2 0.02fF
+C35 mid_sumbit in2 0.25fF
+C36 gnd a_6_n255# 0.02fF
+C37 mid_sumbit sum_bit 0.00fF
+C38 p_inv gnd 0.02fF
+C39 gnd mid_sumbit 0.22fF
+C40 sum_bit Gnd 0.43fF
+C41 a_6_n255# Gnd 0.38fF
+C42 a_n84_n281# Gnd 0.38fF
+C43 carry_in Gnd 0.69fF
+C44 mid_sumbit Gnd 1.09fF
+C45 gnd Gnd 0.37fF
+C46 p_inv Gnd 0.07fF
+C47 g_inv Gnd 0.06fF
+C48 vdd Gnd 1.74fF
+C49 in1 Gnd 1.34fF
+C50 in2 Gnd 1.19fF
+C51 w_61_n257# Gnd 1.06fF
+C52 w_22_n262# Gnd 0.84fF
+C53 w_n55_n262# Gnd 0.84fF
+C54 w_n95_n257# Gnd 1.06fF
+C55 w_n37_n170# Gnd 1.09fF
+
+Vdd vdd gnd 'SUPPLY'
+Va0 in1 gnd 1.8
+Vb0 in2 gnd 0
+Vc0 carry_in gnd 1.8
+
+.tran 100ps 400ns
+
+.control
+set hcopypscolor = 0
+set color0=white 
+set color1=black 
+
+run
+
+set curplottitle="2023112005_PropSumGen"
+
+plot in1, in2+2, carry_in+4, sum_bit+6, p_inv+8, g_inv+10
+.endc

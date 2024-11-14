@@ -1,0 +1,64 @@
+timestamp 1731585126
+version 8.3
+tech scmos
+style TSMC0.18um(tsmc18)from:t11b
+scale 1000 1 9
+resistclasses 6700 7500 929000 929000 1 7700 7700 80 80 80 70 70 40
+node "a_n4_n7#" 38 0 -4 -7 pdif 0 0 320 96 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "g_inv" 48 164.402 30 2 pdif 100 50 160 56 0 0 0 0 0 0 0 0 0 0 239 164 0 0 0 0 0 0 0 0 0 0
+node "a_30_40#" 17 0 30 40 ndif 160 56 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "vdd" 205 298.916 -38 14 pdc 0 0 500 240 0 0 0 0 0 0 0 0 0 0 530 336 0 0 0 0 0 0 0 0 0 0
+equiv "vdd" "vdd"
+equiv "vdd" "vdd"
+node "p_inv" 70 322.834 -4 51 ndif 80 36 200 90 0 0 0 0 0 0 0 0 0 0 152 102 79 56 0 0 0 0 0 0 0 0
+node "gnd" 121 323.957 -38 46 ndif 250 140 0 0 0 0 0 0 0 0 0 0 0 0 379 256 0 0 0 0 0 0 0 0 0 0
+node "mid_s" 33 376.819 -68 14 pdif 70 34 140 54 0 0 0 0 0 0 0 0 0 0 87 60 166 114 0 0 0 0 0 0 0 0
+node "in2" 961 859.527 -70 2 p 0 0 100 50 0 0 0 0 0 0 520 504 0 0 455 310 242 158 0 0 0 0 0 0 0 0
+node "in1" 811 965.512 -75 14 pdif 50 30 100 50 0 0 0 0 0 0 426 414 0 0 430 294 100 80 460 290 0 0 0 0 0 0
+node "in1_inv" 159 533.407 -70 43 p 100 60 100 50 0 0 0 0 0 0 54 52 0 0 240 154 127 84 0 0 0 0 0 0 0 0
+node "w_n81_8#" 4435 4922.56 -81 8 nw 0 0 0 0 4901 370 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+cap "gnd" "in2" 17.6734
+cap "w_n81_8#" "mid_s" 167.968
+cap "mid_s" "in1" 417.102
+cap "in2" "w_n81_8#" 868.178
+cap "in2" "in1" 668.366
+cap "gnd" "in1" 20.4034
+cap "w_n81_8#" "in1" 365.896
+cap "in2" "vdd" 57.634
+cap "in2" "g_inv" 104.697
+cap "gnd" "g_inv" 41.238
+cap "w_n81_8#" "vdd" 152.901
+cap "vdd" "in1" 3.885
+cap "g_inv" "w_n81_8#" 39.3741
+cap "in2" "in1_inv" 134.921
+cap "gnd" "in1_inv" 185.565
+cap "w_n81_8#" "in1_inv" 22.7202
+cap "in1_inv" "in1" 93.2457
+cap "a_n4_n7#" "in1" 6.216
+cap "in2" "p_inv" 299.499
+cap "gnd" "p_inv" 86.7419
+cap "w_n81_8#" "p_inv" 22.7202
+cap "p_inv" "in1" 49.2468
+cap "in2" "mid_s" 4.488
+fet pfet 38 2 39 3 40 44 "w_n81_8#" "in2" 4 0 "g_inv" 20 0 "vdd" 20 0
+fet pfet 28 2 29 3 40 44 "w_n81_8#" "in1" 4 0 "vdd" 20 0 "g_inv" 20 0
+fet pfet 4 -7 5 -6 80 84 "w_n81_8#" "in2" 4 0 "a_n4_n7#" 40 0 "p_inv" 40 0
+fet pfet -6 -7 -5 -6 80 84 "w_n81_8#" "in1" 4 0 "vdd" 40 0 "a_n4_n7#" 40 0
+fet nfet 38 40 39 41 40 44 "Gnd!" "in2" 4 0 "a_30_40#" 20 0 "g_inv" 20 0
+fet nfet 28 40 29 41 40 44 "Gnd!" "in1" 4 0 "gnd" 20 0 "a_30_40#" 20 0
+fet pfet -33 14 -32 15 40 44 "w_n81_8#" "in2" 4 0 "vdd" 20 0 "in1_inv" 20 0
+fet pfet -61 14 -60 15 40 44 "w_n81_8#" "in1" 4 0 "mid_s" 20 0 "in2" 20 0
+fet pfet -70 14 -69 15 40 44 "w_n81_8#" "in2" 4 0 "in1" 20 0 "mid_s" 20 0
+fet nfet 4 51 5 52 20 24 "Gnd!" "in2" 4 0 "p_inv" 10 0 "gnd" 10 0
+fet nfet -6 51 -5 52 20 24 "Gnd!" "in1" 4 0 "gnd" 10 0 "p_inv" 10 0
+fet nfet -33 46 -32 47 20 24 "Gnd!" "in2" 4 0 "gnd" 10 0 "in1_inv" 10 0
+fet nfet -61 47 -60 48 20 24 "Gnd!" "in1" 4 0 "mid_s" 10 0 "in1_inv" 10 0
+fet nfet -70 47 -69 48 20 24 "Gnd!" "in1_inv" 4 0 "in1" 10 0 "mid_s" 10 0
+subcap "vdd" -164.392
+subcap "p_inv" -307.542
+subcap "gnd" -191.416
+subcap "mid_s" -14.5953
+subcap "in2" -435.307
+subcap "in1" -163.211
+subcap "w_n81_8#" -1980.68
+subcap "g_inv" -73.7925

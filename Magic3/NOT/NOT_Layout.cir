@@ -1,0 +1,40 @@
+* SPICE3 file created from NOT.ext - technology: scmos
+* NOT Gate Layout 
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+M1000 out in vdd w_0_n6# CMOSP w=20 l=2
++  ad=100 pd=50 as=100 ps=50
+M1001 out in gnd Gnd CMOSN w=10 l=2
++  ad=50 pd=30 as=50 ps=30
+C0 in gnd 0.02fF
+C1 w_0_n6# out 0.02fF
+C2 in out 0.04fF
+C3 w_0_n6# in 0.07fF
+C4 w_0_n6# vdd 0.02fF
+C5 gnd Gnd 0.06fF
+C6 out Gnd 0.03fF
+C7 vdd Gnd 0.04fF
+C8 in Gnd 0.13fF
+C9 w_0_n6# Gnd 0.80fF
+
+Vdd vdd gnd 'SUPPLY'
+
+Va in gnd pulse 0 1.8 0 0.01ns 0.01ns 10ns 20ns
+
+.tran 1p 50n
+
+.control
+
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+
+set curplottitle="2023112005_NOT"
+plot v(out)+2, v(in)
+
+.endc

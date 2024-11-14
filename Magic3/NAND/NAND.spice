@@ -1,0 +1,18 @@
+* SPICE3 file created from NAND.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 vdd in2 out w_n1_36# pfet w=20 l=2
++  ad=200 pd=100 as=160 ps=56
+M1001 out in1 vdd w_n1_36# pfet w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1002 a_12_4# in1 gnd Gnd nfet w=20 l=2
++  ad=160 pd=56 as=100 ps=50
+M1003 out in2 a_12_4# Gnd nfet w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+C0 vdd w_n1_36# 0.05fF
+C1 in2 out 0.10fF
+C2 w_n1_36# out 0.04fF
+C3 in2 w_n1_36# 0.07fF
+C4 in1 in2 0.21fF
+C5 in1 w_n1_36# 0.07fF

@@ -1,0 +1,70 @@
+* SPICE3 file created from D_FF.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 q a_216_8# vdd w_110_2# pfet w=20 l=2
++  ad=100 pd=50 as=600 ps=300
+M1001 a_123_n24# clk a_123_8# w_110_2# pfet w=20 l=2
++  ad=100 pd=50 as=120 ps=52
+M1002 q a_216_8# gnd Gnd nfet w=10 l=2
++  ad=50 pd=30 as=500 ps=260
+M1003 a_191_8# a_173_n18# vdd w_110_2# pfet w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1004 a_173_n18# a_147_n24# gnd Gnd nfet w=10 l=2
++  ad=50 pd=30 as=0 ps=0
+M1005 a_173_n18# a_147_n24# vdd w_110_2# pfet w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1006 a_123_8# d vdd w_110_2# pfet w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1007 a_147_8# a_123_n24# vdd w_110_2# pfet w=20 l=2
++  ad=120 pd=52 as=0 ps=0
+M1008 a_123_n24# d gnd Gnd nfet w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1009 a_191_8# clk a_191_n24# Gnd nfet w=20 l=2
++  ad=100 pd=50 as=140 ps=54
+M1010 a_191_n24# a_173_n18# gnd Gnd nfet w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 a_147_n24# clk a_147_8# w_110_2# pfet w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1012 a_216_8# a_191_8# vdd w_110_2# pfet w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1013 a_216_8# clk a_216_n24# Gnd nfet w=20 l=2
++  ad=100 pd=50 as=140 ps=54
+M1014 a_216_n24# a_191_8# gnd Gnd nfet w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1015 a_147_n24# a_123_n24# gnd Gnd nfet w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+C0 gnd d 0.02fF
+C1 w_110_2# a_173_n18# 0.09fF
+C2 clk a_191_8# 0.03fF
+C3 a_173_n18# gnd 0.05fF
+C4 clk d 0.07fF
+C5 clk a_147_n24# 0.06fF
+C6 w_110_2# a_123_n24# 0.09fF
+C7 w_110_2# a_216_8# 0.12fF
+C8 clk a_173_n18# 0.03fF
+C9 gnd a_123_n24# 0.02fF
+C10 w_110_2# vdd 0.14fF
+C11 a_147_n24# a_173_n18# 0.05fF
+C12 w_110_2# a_191_8# 0.11fF
+C13 clk w_110_2# 0.14fF
+C14 w_110_2# q 0.02fF
+C15 clk a_123_n24# 0.14fF
+C16 w_110_2# d 0.07fF
+C17 a_216_8# q 0.05fF
+C18 d a_123_n24# 0.03fF
+C19 a_191_8# gnd 0.05fF
+C20 a_147_n24# w_110_2# 0.09fF
+C21 clk gnd 1.41fF
+C22 a_147_n24# a_123_n24# 0.03fF
+C23 gnd Gnd 0.07fF
+C24 q Gnd 0.05fF
+C25 vdd Gnd 0.05fF
+C26 a_216_8# Gnd 0.17fF
+C27 a_191_8# Gnd 0.15fF
+C28 a_173_n18# Gnd 0.17fF
+C29 a_147_n24# Gnd 0.19fF
+C30 a_123_n24# Gnd 0.05fF
+C31 clk Gnd 1.13fF
+C32 d Gnd 0.12fF
+C33 w_110_2# Gnd 4.56fF

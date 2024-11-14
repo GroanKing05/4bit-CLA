@@ -1,0 +1,77 @@
+* SPICE3 file created from D_pos.ext - technology: scmos
+* D positive latch
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+M1000 out a_n50_69# vdd w_n63_100# CMOSP w=20 l=2
++  ad=100 pd=50 as=400 ps=200
+M1001 out a_n50_69# gnd Gnd CMOSN w=20 l=2
++  ad=100 pd=50 as=400 ps=200
+M1002 a_n145_66# d gnd Gnd CMOSN w=20 l=2
++  ad=200 pd=100 as=0 ps=0
+M1003 a_n50_69# q gnd Gnd CMOSN w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1004 a_n145_66# clk a_n145_100# Gnd CMOSN w=20 l=2
++  ad=0 pd=0 as=100 ps=50
+M1005 a_n145_100# d vdd w_n158_94# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1006 a_n97_66# a_n145_100# gnd Gnd CMOSN w=20 l=2
++  ad=200 pd=100 as=0 ps=0
+M1007 q a_n145_100# vdd w_n110_94# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1008 a_n50_69# q vdd w_n63_100# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1009 a_n97_66# clk q Gnd CMOSN w=20 l=2
++  ad=0 pd=0 as=100 ps=50
+C0 a_n145_66# clk 0.02fF
+C1 gnd a_n145_66# 0.49fF
+C2 w_n63_100# out 0.02fF
+C3 w_n158_94# vdd 0.02fF
+C4 w_n158_94# d 0.06fF
+C5 w_n110_94# q 0.03fF
+C6 q clk 0.20fF
+C7 w_n63_100# vdd 0.05fF
+C8 d a_n145_100# 0.04fF
+C9 q a_n50_69# 0.05fF
+C10 w_n110_94# a_n145_100# 0.06fF
+C11 a_n97_66# clk 0.04fF
+C12 gnd a_n97_66# 0.39fF
+C13 a_n145_100# clk 0.20fF
+C14 a_n50_69# out 0.05fF
+C15 w_n110_94# vdd 0.02fF
+C16 q a_n145_100# 0.04fF
+C17 w_n63_100# a_n50_69# 0.09fF
+C18 w_n158_94# a_n145_100# 0.03fF
+C19 w_n63_100# q 0.06fF
+C20 clk Gnd 0.31fF
+C21 a_n97_66# Gnd 0.12fF
+C22 a_n145_66# Gnd 0.12fF
+C23 gnd Gnd 0.34fF
+C24 out Gnd 0.06fF
+C25 vdd Gnd 0.15fF
+C26 a_n145_100# Gnd 0.33fF
+C27 d Gnd 0.14fF
+C28 a_n50_69# Gnd 0.22fF
+C29 q Gnd 0.18fF
+C30 w_n63_100# Gnd 0.09fF
+C31 w_n110_94# Gnd 0.77fF
+C32 w_n158_94# Gnd 0.77fF
+
+Vdd vdd gnd 'SUPPLY'
+Vclk clk gnd pulse 0 1.8 0 0.01ns 0.01ns 10ns 20ns
+Vd d gnd pulse 1.8 0 15n 0.01ns 0.01ns 20ns 40ns
+
+.tran 100p 100n
+
+.control
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+
+set curplottitle="2023112005_TSPC_Positive_Latch"
+plot v(d)+2, v(out), v(clk)+4
+.endc

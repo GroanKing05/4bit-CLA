@@ -1,0 +1,89 @@
+* SPICE3 file created from MidPropGen.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+M1000 in1_inv in2 vdd w_n81_8# CMOSP w=20 l=2
++  ad=100 pd=50 as=500 ps=240
+M1001 g_inv in2 a_30_40# Gnd CMOSN w=20 l=2
++  ad=100 pd=50 as=160 ps=56
+M1002 a_n4_n7# in1 vdd w_n81_8# CMOSP w=40 l=2
++  ad=320 pd=96 as=0 ps=0
+M1003 in1_inv in1 mid_s Gnd CMOSN w=10 l=2
++  ad=100 pd=60 as=70 ps=34
+M1004 a_30_40# in1 gnd Gnd CMOSN w=20 l=2
++  ad=0 pd=0 as=250 ps=140
+M1005 mid_s in2 in1 w_n81_8# CMOSP w=20 l=2
++  ad=140 pd=54 as=100 ps=50
+M1006 p_inv in2 a_n4_n7# w_n81_8# CMOSP w=40 l=2
++  ad=200 pd=90 as=0 ps=0
+M1007 g_inv in1 vdd w_n81_8# CMOSP w=20 l=2
++  ad=160 pd=56 as=0 ps=0
+M1008 p_inv in1 gnd Gnd CMOSN w=10 l=2
++  ad=80 pd=36 as=0 ps=0
+M1009 vdd in2 g_inv w_n81_8# CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1010 in1_inv in2 gnd Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 gnd in2 p_inv Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1012 in2 in1 mid_s w_n81_8# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1013 mid_s in1_inv in1 Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=50 ps=30
+C0 gnd in2 0.02fF
+C1 a_n4_n7# in1 0.01fF
+C2 w_n81_8# vdd 0.15fF
+C3 w_n81_8# mid_s 0.17fF
+C4 in2 g_inv 0.10fF
+C5 gnd g_inv 0.04fF
+C6 w_n81_8# p_inv 0.02fF
+C7 vdd in1 0.00fF
+C8 vdd in2 0.06fF
+C9 mid_s in1 0.42fF
+C10 in2 mid_s 0.00fF
+C11 p_inv in1 0.05fF
+C12 p_inv in2 0.30fF
+C13 gnd p_inv 0.09fF
+C14 w_n81_8# in1_inv 0.02fF
+C15 w_n81_8# in1 0.37fF
+C16 w_n81_8# in2 0.87fF
+C17 in1_inv in1 0.09fF
+C18 in1_inv in2 0.13fF
+C19 in1_inv gnd 0.19fF
+C20 in2 in1 0.67fF
+C21 gnd in1 0.02fF
+C22 w_n81_8# g_inv 0.04fF
+C23 g_inv Gnd 0.09fF
+C24 vdd Gnd 0.13fF
+C25 p_inv Gnd 0.02fF
+C26 gnd Gnd 0.13fF
+C27 mid_s Gnd 0.36fF
+C28 in2 Gnd 0.42fF
+C29 in1 Gnd 0.80fF
+C30 in1_inv Gnd 0.53fF
+C31 w_n81_8# Gnd 2.94fF
+
+Vdd vdd gnd 'SUPPLY'
+Va0 in1 gnd 1.8
+Vb0 in2 gnd 1.8
+
+.tran 100ps 400ns
+.measure tran in1 FIND v(in1) AT=200ns
+.measure tran in2 FIND v(in2) AT=200ns
+.measure tran mid_s FIND v(mid_s) AT=200ns
+.measure tran p_inv FIND v(p_inv) AT=200ns
+.measure tran g_inv FIND v(g_inv) AT=200ns
+
+.control
+set hcopypscolor = 0
+set color0=white 
+set color1=black 
+
+run
+
+set curplottitle="2023112005_MidPropGen"
+
+* plot in1, in2+2, mid_s+4 p_inv+6, g_inv+8
+.endc

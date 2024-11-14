@@ -1,0 +1,68 @@
+* SPICE3 file created from D_neg.ext - technology: scmos
+* D negative latch layout
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+M1000 a_n117_44# q vdd w_n195_75# CMOSP w=20 l=2
++  ad=100 pd=50 as=400 ps=200
+M1001 mid d gnd Gnd CMOSN w=20 l=2
++  ad=100 pd=50 as=400 ps=200
+M1002 out a_n117_44# gnd Gnd CMOSN w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1003 q mid gnd Gnd CMOSN w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1004 a_n182_81# d vdd w_n195_75# CMOSP w=20 l=2
++  ad=160 pd=56 as=0 ps=0
+M1005 out a_n117_44# vdd w_n195_75# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1006 a_n148_81# mid vdd w_n195_75# CMOSP w=20 l=2
++  ad=160 pd=56 as=0 ps=0
+M1007 mid clk a_n182_81# w_n195_75# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1008 a_n117_44# q gnd Gnd CMOSN w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+M1009 q clk a_n148_81# w_n195_75# CMOSP w=20 l=2
++  ad=100 pd=50 as=0 ps=0
+C0 w_n195_75# clk 0.14fF
+C1 w_n195_75# a_n117_44# 0.09fF
+C2 mid w_n195_75# 0.09fF
+C3 clk q 0.10fF
+C4 q a_n117_44# 0.05fF
+C5 out w_n195_75# 0.02fF
+C6 d w_n195_75# 0.07fF
+C7 gnd mid 0.02fF
+C8 mid clk 0.28fF
+C9 w_n195_75# q 0.09fF
+C10 w_n195_75# vdd 0.09fF
+C11 out a_n117_44# 0.05fF
+C12 gnd d 0.02fF
+C13 d clk 0.22fF
+C14 gnd Gnd 0.01fF
+C15 out Gnd 0.06fF
+C16 vdd Gnd 0.17fF
+C17 q Gnd 0.24fF
+C18 clk Gnd 0.33fF
+C19 mid Gnd 0.28fF
+C20 d Gnd 0.19fF
+C21 w_n195_75# Gnd 2.54fF
+
+Vdd vdd gnd 'SUPPLY'
+Vclk clk gnd pulse 0 1.8 5ns 0.01ns 0.01ns 10ns 20ns
+Vd d gnd pulse 1.8 0 12n 0.01ns 0.01ns 20ns 40ns
+
+.tran 100p 100n
+
+.ic v(out)=0
+
+.control
+set hcopypscolor = 1
+set color0=white
+set color1=black
+
+run
+
+set curplottitle="2023112005_TSPC_Negative_Latch"
+plot v(d)+2, v(out), v(clk)+4
+.endc
